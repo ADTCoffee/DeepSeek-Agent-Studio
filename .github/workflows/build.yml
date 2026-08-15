@@ -1,0 +1,32 @@
+name: Build DeepSeek Agent Studio
+
+on:
+  push:
+    branches: [main, master]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate logo and icon
+        run: python make_deepseek_icon.py
+
+      - name: Build exe
+        run: |
+          python -m pip install --upgrade pyinstaller
+          python -m PyInstaller --noconfirm --clean --onefile --windowed --name "DeepSeek-Agent-Studio" --icon "assets\deepseek_agent.ico" "deepseek_agent_studio.pyw"
+
+      - name: Publish exe as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DeepSeek-Agent-Studio-Windows
+          path: dist/DeepSeek-Agent-Studio.exe
+          if-no-files-found: error

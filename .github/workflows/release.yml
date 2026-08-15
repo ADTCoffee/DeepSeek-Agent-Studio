@@ -1,0 +1,24 @@
+name: Release DeepSeek Agent Studio
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build
+        run: |
+          python make_deepseek_icon.py
+          python -m pip install --upgrade pyinstaller
+          python -m PyInstaller --noconfirm --clean --onefile --windowed --name "DeepSeek-Agent-Studio" --icon "assets\deepseek_agent.ico" "deepseek_agent_studio.pyw"
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/DeepSeek-Agent-Studio.exe
+          generate_release_notes: true
