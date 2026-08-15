@@ -78,7 +78,7 @@ API 地址默认 `https://api.deepseek.com`，也可填写兼容网关地址。
 
 ```bat
 python publish_update.py 1.1.0 dist\DeepSeek-Agent-Studio.exe ^
-  https://github.com/hawkongz/deepseek-eyes/releases/download/v1.1.0/DeepSeek-Agent-Studio.exe ^
+  https://github.com/ADTCoffee/DeepSeek-Agent-Studio/releases/download/v1.1.0/DeepSeek-Agent-Studio.exe ^
   "更新说明"
 ```
 

@@ -26,12 +26,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
 
-DEFAULT_REPO = "hawkongz/deepseek-eyes"
+DEFAULT_REPO = "ADTCoffee/DeepSeek-Agent-Studio"
 DEFAULT_MANIFEST_URL = (
-    "https://raw.githubusercontent.com/hawkongz/deepseek-eyes/main/"
+    "https://raw.githubusercontent.com/ADTCoffee/DeepSeek-Agent-Studio/main/"
     "deepseek-agent-studio-update.json"
 )
-DEFAULT_RELEASES_API = "https://api.github.com/repos/hawkongz/deepseek-eyes/releases/latest"
+DEFAULT_RELEASES_API = "https://api.github.com/repos/ADTCoffee/DeepSeek-Agent-Studio/releases/latest"
 
 DOWNLOAD_CHUNK = 256 * 1024
 REQUEST_TIMEOUT = 25
