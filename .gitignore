@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+deepseek-agent-studio.json
+eyes_shots/
+plugins/
+.vscode/
+.idea/
